@@ -5,7 +5,7 @@ export default function signin({ providers }) {
       <img src="https://www.techbooky.com/wp-content/uploads/2021/07/4859E08D-388B-4475-9FCC-C05914CC654A.png" alt="twitter image inside a phone" className=" hidden  object-cover md:w-44 md:h-80 md:inline-flex rotate-6"/>
       <div className="">
         {Object.values(providers).map((provider)=>(
-          <div className="flex flex-col items-center">
+          <div key={provider.name} className="flex flex-col items-center">
               <img className="w-36 object-cover"
               src="https://freepngimg.com/thumb/artwork/59446-and-twitter-cartoon-black-white-drawing-bird.png" alt="twitter logo" />
 
