@@ -10,7 +10,7 @@ import { useEffect } from "react"
 import { doc, onSnapshot } from "firebase/firestore"
 import { db } from "../../firebase"
 import { query, collection, orderBy } from "firebase/firestore";
-import Comment from '../../components/comment'
+import Comment from '../../components/Comment'
 import { AnimatePresence, motion } from 'framer-motion';
 
 export default function Home({ newsResults, randomUsersResults }) {
