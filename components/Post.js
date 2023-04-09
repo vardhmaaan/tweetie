@@ -1,7 +1,7 @@
-import { ChartBarIcon, ChatIcon, DotsHorizontalIcon, HeartIcon, ShareIcon, TrashIcon } from "@heroicons/react/outline";
-import { HeartIcon as HeartIconFilled } from "@heroicons/react/solid";
+import { ChartBarIcon, ChatIcon, DotsHorizontalIcon, HeartIcon, ShareIcon, TrashIcon} from "@heroicons/react/outline";
+import { HeartIcon as HeartIconFilled, PencilIcon } from "@heroicons/react/solid";
 import Moment from "react-moment";
-import { collection, deleteDoc, doc, onSnapshot, setDoc } from "firebase/firestore";
+import { collection, deleteDoc, doc, onSnapshot, setDoc} from "firebase/firestore";
 import { db, storage } from "../firebase";
 import { signIn, useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
@@ -9,7 +9,7 @@ import { async } from "@firebase/util";
 import { deleteObject, ref } from "firebase/storage";
 import { useRecoilState } from "recoil";
 import { modalState, postIdState } from "../atom/modalAtom";
-import {useRouter} from "next/router"
+import {useRouter} from "next/router";
 
 export default function Post({ post, id }) {
   const { data: session } = useSession();
@@ -109,7 +109,11 @@ export default function Post({ post, id }) {
 
           {session?.user.uid === post?.data()?.id && (
             <TrashIcon onClick={deletePost} className="h-9 w-9 hoverEffect p-2 hover:text-red-600 hover:bg-red-100" />
-          )}
+            )}
+          {session?.user.uid === post?.data()?.id && (
+            <PencilIcon className="h-9 w-9 hoverEffect p-2 hover:text-blue-600 hover:bg-blue-100" />
+            )}
+            
 
 
           <div className="flex items-center">
